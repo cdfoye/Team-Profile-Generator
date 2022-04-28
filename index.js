@@ -36,7 +36,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'managerOffice',
+            name: 'officeNumber',
             message: 'Enter managers office number: ',
         },
     ])
@@ -45,7 +45,7 @@ const questions = () => {
             response.managerName,
             response.managerId,
             response.managerEmail,
-            response.managerOffice
+            response.officeNumber
         );
         const managerBuild = managerHTML(Manager);
         myTeam.push(managerBuild);
@@ -66,22 +66,26 @@ const questions = () => {
                 ],
             },
         ])
-        .then(response => {
-            switch (response.moreTeam) {
-                case 'Add an Engineer to my team': 
+        .then(answers => {
+            switch (answers.moreMembers) {
+                case 'Add an Engineer to my team': {
                     addEngineer();
                     break;
-                case 'Add an Intern to my team':
+                }
+                case 'Add an Intern to my team': {
                     addIntern();
                     break;
-                case 'No, Im done. Finish building my team.':
+                }
+                case 'No, Im done. Finish building my team.': {
                     completeTeam();
                     break;
-            };
+                }
+            }
         });
     };
 
     const addEngineer = () => {
+        console.log('Enter Engineer info');
         inquirer.prompt([
             {
                 type: 'input',

@@ -159,7 +159,7 @@ const questions = () => {
 
     function completeTeam() {
         const createTeam = myTeam.join('');
-        fs.writeFileSync('newTeam.html', contentHTML(createTeam));
+        fs.writeFileSync('./dist/newTeam.html', contentHTML(createTeam));
         console.log('newTeam.html file created');
     };
 };

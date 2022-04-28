@@ -5,7 +5,7 @@ const fs = require('fs');
 const manager = require('./lib/Manager');
 const engineer = require('./lib/Engineer');
 const intern = require('./lib/Intern');
-const content = require('./lib/Employee');
+//const content = require('./lib/Employee');
 
 // html for employee cards
 const managerHTML = require('./src/ManagerTemplate');
@@ -151,19 +151,14 @@ const questions = () => {
             myTeam.push(internBuild);
             moreTeam();
         })
-    }
+    };
 
-
+    function completeTeam() {
+        const createTeam = myTeam.join('');
+        fs.writeFileSync('newTeam.html', contentHTML(createTeam));
+        console.log('newTeam.html file created');
+    };
 };
 
-// function to initialize app
-const init = () => {
-    questions()
-    // used writeFileSync method to use promises instead of a callback function
-    .then((data) => fs.writeFileSync('newREADME.md', generateMarkdown(data)))
-    .then(() => console.log('README successfully created'))
-    .catch((err) => console.error(err));
-};
-
-// Function call to initialize app
-init();
+// initialize the app and start the prompt questions
+questions();

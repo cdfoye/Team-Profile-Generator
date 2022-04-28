@@ -77,9 +77,9 @@ const questions = () => {
                 case 'No, Im done. Finish building my team.':
                     completeTeam();
                     break;
-            }
+            };
         });
-    }
+    };
 
     const addEngineer = () => {
         inquirer.prompt([
@@ -117,7 +117,43 @@ const questions = () => {
         });
     };
 
-    
+    const addIntern = () => {
+        inquirer.prompt([
+            {
+                type:'input',
+                name: 'internName',
+                message: 'Enter the Interns name: ',
+            },
+            {
+                type: 'input',
+                name: 'internId',
+                message: 'Enter the Interns employee ID: ',
+            },
+            {
+                type: 'input',
+                name: 'internEmail',
+                message: 'Enter the Interns email: ',
+            },
+            {
+                type: 'input',
+                name: 'internSchool',
+                message: 'Enter the Interns school: ',
+            },
+        ])
+        .then(response => {
+            const Intern = new intern(
+                response.internName,
+                response.internId,
+                response.internEmail,
+                response.internSchool
+            );
+            const internBuild = internHTML(Intern);
+            myTeam.push(internBuild);
+            moreTeam();
+        })
+    }
+
+
 };
 
 // function to initialize app

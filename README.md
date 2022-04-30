@@ -22,7 +22,7 @@
   - Make sure you are in the directory of the cloned repository
   - Enter "npm install inquirer" in the terminal to install inquirer
   - Enter "node index.js" in your terminal
-  - Follow the prompts to generate your README content
+  - Follow the prompts to generate your new HTML file
   
   
   ## Usage

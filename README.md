@@ -29,7 +29,7 @@
   
   [Link to the Team-Profile-Generator repository](https://github.com/cdfoye/Team-Profile-Generator)
 
-  The following gif demonstrates how to use this application:
+  The following gif walkthroughs how to use this application:
 
   ![gif tutorial of project](./assets/tutorial.gif)
   

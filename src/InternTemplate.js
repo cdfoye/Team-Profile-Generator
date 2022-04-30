@@ -1,3 +1,4 @@
+// HTML to create a new intern card with data passed from the user's reponses
 function internHTML(data) {
     return `<div class="card col-3 m-3 shadow bg-body rounded" style="padding-left: 0; padding-right: 0;">
     <div class="card-header" style="background-color: #35dccd;">
@@ -14,4 +15,5 @@ function internHTML(data) {
 </div>`;
 }
 
+// export the function so it can be imported elsewhere
 module.exports = internHTML;

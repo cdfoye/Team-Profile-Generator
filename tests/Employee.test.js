@@ -1,5 +1,7 @@
+// import the employee.js file
 const Employee = require('../lib/Employee');
 
+// four tests to make sure the Employee.js file is working properly
 describe('Employee', () => {
     describe('getName', () => {
         it("should return the name of the employee", () => {

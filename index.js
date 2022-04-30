@@ -5,7 +5,6 @@ const fs = require('fs');
 const manager = require('./lib/Manager');
 const engineer = require('./lib/Engineer');
 const intern = require('./lib/Intern');
-//const content = require('./lib/Employee');
 
 // html for employee cards
 const managerHTML = require('./src/ManagerTemplate');
@@ -40,6 +39,7 @@ const questions = () => {
             message: 'Enter managers office number: ',
         },
     ])
+    // once the user finishes answering the prompt then pass the data into the managerHTML and push that html into the moreTeam array
     .then(response => {
         const Manager = new manager(
             response.managerName,
@@ -66,6 +66,7 @@ const questions = () => {
                 ],
             },
         ])
+        // go to addEngineer or addIntern functions, or complete building and create the new file depending on what the user selected
         .then(answers => {
             switch (answers.moreMembers) {
                 case 'Add an Engineer to my team': {
@@ -84,6 +85,7 @@ const questions = () => {
         });
     };
 
+    // prompt for the user to enter info about the engineer
     const addEngineer = () => {
         console.log('Enter Engineer info');
         inquirer.prompt([
@@ -108,6 +110,7 @@ const questions = () => {
                 message: 'Enter the Engineers Github username: ',
             },
         ])
+        // once the user finishes answering the prompt then pass the data into the engineerHTML and push that html into the moreTeam array. call the moreTeam function to bring up the menu again
         .then(response => {
             const Engineer = new engineer(
                 response.engineerName,
@@ -121,6 +124,7 @@ const questions = () => {
         });
     };
 
+    // prompt for the user to enter info about the intern
     const addIntern = () => {
         inquirer.prompt([
             {
@@ -144,6 +148,7 @@ const questions = () => {
                 message: 'Enter the Interns school: ',
             },
         ])
+        // once the user finishes answering the prompt then pass the data into the internHTML and push that html into the moreTeam array. call the moreTeam function to bring up the menu again
         .then(response => {
             const Intern = new intern(
                 response.internName,
@@ -157,9 +162,12 @@ const questions = () => {
         })
     };
 
+    // when the user is finished building their team then join the myTeam array and assign it to a new variable createTeam
+    // write a new file called newTeam.html and save it to the dist folder using the contentHTML and passing the createTeam variable into contentHTM
     function completeTeam() {
         const createTeam = myTeam.join('');
         fs.writeFileSync('./dist/newTeam.html', contentHTML(createTeam));
+        console.log('/n-----------------/n')
         console.log('newTeam.html file created');
     };
 };

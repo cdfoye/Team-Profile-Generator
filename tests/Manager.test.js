@@ -1,5 +1,7 @@
+// import the Manager.js file
 const Manager = require('../lib/Manager');
 
+// two tests to make sure the Manager.js file is working properly
 describe('Manager', () => {
     describe('getofficeNumber', () => {
         it("should return the office number of the Manager", () => {

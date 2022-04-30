@@ -1,5 +1,7 @@
+// import the Engineer.js file
 const Engineer = require('../lib/Engineer');
 
+// two tests to make sure the Engineer.js file is working properly
 describe('Engineer', () => {
     describe('getGithub', () => {
         it("should return the Github username of the employee", () => {

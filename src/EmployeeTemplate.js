@@ -1,3 +1,5 @@
+// new function that passes in the data from the user's prompt response to create a new employee cards. This HTML will be used to create the new HTML file
+// Bootstrap is used to avoid the created of a CSS file
 function contentHTML(data) {
     return `<!DOCTYPE html>
     <html lang="en">
@@ -32,4 +34,5 @@ function contentHTML(data) {
     </html>`;
 }
 
+// export the contentHTML function to be imported elsewhere
 module.exports = contentHTML;

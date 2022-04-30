@@ -167,8 +167,9 @@ const questions = () => {
     function completeTeam() {
         const createTeam = myTeam.join('');
         fs.writeFileSync('./dist/newTeam.html', contentHTML(createTeam));
-        console.log('/n-----------------/n')
+        console.log('\n-----------------\n');
         console.log('newTeam.html file created');
+        console.log('\n-----------------\n');
     };
 };
 
